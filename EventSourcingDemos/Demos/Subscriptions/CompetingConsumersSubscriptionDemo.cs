@@ -25,8 +25,6 @@ namespace EventSourcingDemos.Demos.Subscriptions
             await connection.DeletePersistentSubscriptionAsync(StreamId, GroupName, Credentials);
         }
 
-        // Seems to be an issue with the client in that the subscriptions need to be created on a separate connection - not the end of the world as the connection would be short lived
-        // Appears to be exclusive to the competing consumers model.
         private async Task CreateCompetingConsumersSubscription()
         {
             bool created = await EventStoreHelpers.CreatePersistentSubscriptionAsyncIfRequired(
