@@ -34,27 +34,6 @@ namespace EventSourcingDemos
             demo.Start().Wait();
         }
 
-        //private static async Task RunCatchupSubscription()
-        //{
-        //    var catchupSubscription = connection.SubscribeToAllFrom(null, false, RecievedEvent, userCredentials: UserCredentials);
-        //}
-
-        //// Picks up events as they are written to the stream, however this isn't competing consumer as each client would have their own subscription
-        //private static async Task RunLiveOnlySubscription()
-        //{
-        //    await connection.SubscribeToStreamAsync(StreamId, false, RecievedEvent, null, UserCredentials);
-        //}
-
-        //private static void RecievedEvent(EventStoreSubscription s, ResolvedEvent e)
-        //{
-        //    Console.WriteLine(e.Event);
-        //}
-
-        //private static void RecievedEvent(EventStoreCatchUpSubscription s, ResolvedEvent e)
-        //{
-        //    logger.Info("Event Id: {0} created {1}", e.OriginalEventNumber, e.OriginalEvent.Created);
-        //}
-
         #region Logging Setup
 
         private static void ConfigureLogging()
