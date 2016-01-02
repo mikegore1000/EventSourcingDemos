@@ -4,13 +4,14 @@ namespace EventSourcingDemos.Events
 {
     public class PaymentAccepted
     {
-        public PaymentAccepted()
+        public PaymentAccepted(Guid id, string paymentId)
         {
-            EventId = Guid.NewGuid();
+            Id = id;
+            PaymentId = paymentId;
         }
 
-        public Guid EventId { get; set; }
+        public Guid Id { get; private set; }
 
-        public Guid PaymentId { get; set; }
+        public string PaymentId { get; private set; }
     }
 }

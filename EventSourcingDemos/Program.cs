@@ -1,5 +1,6 @@
 ﻿using System;
 using EventSourcingDemos.Demos;
+using EventSourcingDemos.Demos.Aggregates;
 using EventSourcingDemos.Demos.Subscriptions;
 using NLog;
 using NLog.Config;
@@ -14,9 +15,10 @@ namespace EventSourcingDemos
         {
             ConfigureLogging();
 
-            Demo demo = new CompetingConsumersSubscriptionDemo();
+            // Demo demo = new CompetingConsumersSubscriptionDemo();
             // Demo demo = new CatchupSubscriptionDemo();
             // Demo demo = new LiveOnlySubscriptionDemo();
+            Demo demo = new AggregateDemo();
 
             RunDemo(demo);
         }

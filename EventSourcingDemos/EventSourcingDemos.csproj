@@ -59,6 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aggregate.cs" />
+    <Compile Include="Demos\Aggregates\AggregateDemo.cs" />
+    <Compile Include="Demos\Aggregates\PaymentAggregate.cs" />
     <Compile Include="Demos\Subscriptions\CatchupSubscriptionDemo.cs" />
     <Compile Include="Demos\Subscriptions\CompetingConsumersSubscriptionDemo.cs" />
     <Compile Include="Demos\Demo.cs" />
@@ -68,6 +71,7 @@
     <Compile Include="Events\PaymentCreated.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
