@@ -9,18 +9,20 @@ namespace EventSourcingDemos.Demos.Aggregates
     {
         public override async Task Start()
         {
-            var paymentId = Guid.NewGuid().ToString();
+            var cartId = "ShoppingCart:" + Guid.NewGuid();
             var connection = await CreateConnectionAndConnect();
             var repository = new Repository(connection, Credentials);
 
-            var aggregate = new PaymentAggregate(paymentId);
-            aggregate.AcceptPayment();
+            // Call a method to apply events on the aggregate
+            var aggregate = new ShoppingCartAggregate(cartId, null);
+            aggregate.AddItem("T-SHIRT");
 
-            await repository.SaveAsync(aggregate.Id, aggregate.UncommittedEvents, aggregate.Version);
+            await repository.SaveAsync(aggregate.StreamId, aggregate.UncommittedEvents, aggregate.Version);
 
-            var loadedEventStream = await repository.LoadAsync(paymentId);
+            // Read the aggregate out of the event store
+            var loadedEventStream = await repository.LoadAsync(cartId);
 
-            Logger.Warn($"Read {loadedEventStream.Count()} events, for aggregate {paymentId}");
+            Logger.Warn($"Read {loadedEventStream.Count()} events, for aggregate {cartId}");
             foreach (var e in loadedEventStream)
             {
                 Logger.Info($"Event type: {e}");

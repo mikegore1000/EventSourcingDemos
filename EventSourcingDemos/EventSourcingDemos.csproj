@@ -61,14 +61,14 @@
   <ItemGroup>
     <Compile Include="Aggregate.cs" />
     <Compile Include="Demos\Aggregates\AggregateDemo.cs" />
-    <Compile Include="Demos\Aggregates\PaymentAggregate.cs" />
+    <Compile Include="Demos\Aggregates\ShoppingCartAggregate.cs" />
     <Compile Include="Demos\Subscriptions\CatchupSubscriptionDemo.cs" />
     <Compile Include="Demos\Subscriptions\CompetingConsumersSubscriptionDemo.cs" />
     <Compile Include="Demos\Demo.cs" />
     <Compile Include="Demos\Subscriptions\LiveOnlySubscriptionDemo.cs" />
     <Compile Include="EventStoreHelpers.cs" />
-    <Compile Include="Events\PaymentAccepted.cs" />
-    <Compile Include="Events\PaymentCreated.cs" />
+    <Compile Include="Events\ItemAddedToCart.cs" />
+    <Compile Include="Events\ItemRemovedFromCart.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />

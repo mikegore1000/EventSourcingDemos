@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace EventSourcingDemos
@@ -10,15 +11,19 @@ namespace EventSourcingDemos
 
         public int Version { get; }
 
+        public string StreamId { get; }
+
         protected void Apply(object @event)
         {
             UpdateState(@event);
             uncommitttedEvents.Add(@event);
         }
 
-        protected Aggregate(IEnumerable<object> events)
+        protected Aggregate(string streamId, IEnumerable<object> events)
         {
+            StreamId = streamId;
             Version = -1;
+            events = events ?? Array.Empty<object>();
 
             foreach (var e in events)
             {
